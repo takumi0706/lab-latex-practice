@@ -136,7 +136,7 @@
 }
 
 % sectionのサイズを合わせる
-\RenewBlockHeading{chapter}{0}{lines=6,label_format={第\thechapter 章},font={\bfseries\Huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\Large}}
+\RenewBlockHeading{chapter}{0}{lines=6,label_format={\thechapter },font={\bfseries\Huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\Large}}
 \RenewBlockHeading{section}{1}{font=\huge,after_label_space=1\jlreq@zw}
 \RenewBlockHeading{subsection}{2}{font=\LARGE,after_label_space=1\jlreq@zw}
 \RenewBlockHeading{subsubsection}{3}{font=\Large,after_label_space=1\jlreq@zw}
@@ -159,3 +159,20 @@
 
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{4}
+
+% tikzの設定
+\usepackage{tikz} % 図を描画するためのパッケージ
+
+% 円で囲むコマンドの定義 (文字全体を囲む)
+\newcommand{\circletext}[1]{%
+    \tikz[baseline=(char.base)]{
+        \node[shape=circle,draw,inner sep=0.5pt] (char) {#1};
+    }%
+}
+
+% 角丸の長方形で囲むコマンドの定義
+\newcommand{\roundedbox}[1]{%
+  \tikz[baseline=(box.base)]{
+    \node[draw,rounded corners=3pt,inner sep=2pt] (box) {#1};
+  }%
+}
