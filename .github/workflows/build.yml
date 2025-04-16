@@ -5,8 +5,8 @@ name: build
 # 例えばv1.0.0など
 on:
   push:
-    # branches:
-      # - master
+    branches:
+      - main
     tags:
       - "v*"
     # .github内が変更されたときは実行しない
