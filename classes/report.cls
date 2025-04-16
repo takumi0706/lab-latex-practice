@@ -160,9 +160,6 @@
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{4}
 
-% tikzの設定
-\usepackage{tikz} % 図を描画するためのパッケージ
-
 % 円で囲むコマンドの定義 (文字全体を囲む)
 \newcommand{\circletext}[1]{%
     \tikz[baseline=(char.base)]{
