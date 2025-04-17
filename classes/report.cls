@@ -136,10 +136,10 @@
 }
 
 % sectionのサイズを合わせる
-\RenewBlockHeading{chapter}{0}{lines=6,label_format={\thechapter },font={\bfseries\Huge},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\Large}}
-\RenewBlockHeading{section}{1}{font=\huge,after_label_space=1\jlreq@zw}
-\RenewBlockHeading{subsection}{2}{font=\LARGE,after_label_space=1\jlreq@zw}
-\RenewBlockHeading{subsubsection}{3}{font=\Large,after_label_space=1\jlreq@zw}
+\RenewBlockHeading{chapter}{0}{lines=2,label_format={\thechapter},font={\bfseries\Large},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\Large}}
+\RenewBlockHeading{section}{1}{font=\normalsize,after_label_space=1\jlreq@zw}
+\RenewBlockHeading{subsection}{2}{font=\normalsize,after_label_space=1\jlreq@zw}
+\RenewBlockHeading{subsubsection}{3}{font=\normalsize,after_label_space=1\jlreq@zw}
 
 % セクション類の空白の設定
 \ModifyHeading{section}{before_space=30pt, after_space=30pt}
