@@ -8,7 +8,11 @@
 		"vscode": {
 			"extensions": [
 				"James-Yu.latex-workshop",
-				"mhutchie.git-graph"
+				"mhutchie.git-graph",
+				"MS-CEINTL.vscode-language-pack-ja",
+				"ms-vscode-remote.remote-containers",
+				"github.vscode-github-actions",
+				"3w36zj6.textlint"
 			]
 		}
 	},

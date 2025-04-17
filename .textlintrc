@@ -46,7 +46,7 @@
             "ja-no-successive-word": true,
             "ja-no-weak-phrase": true,
             "max-kanji-continuous-len": {
-                "max": 8
+                "max": 15
             },
             "max-ten": {
                 "touten": "，",
@@ -67,7 +67,9 @@
             "no-exclamation-question-mark": true,
             "no-hankaku-kana": true,
             "no-zero-width-spaces": true,
-            "preset-jtf-style": true
+            "preset-jtf-style": true,
+            "jaComma": "halfwidth",
+            "jaPeriod": "halfwidth"
         },
         "prh": {
             "rulePaths": [
