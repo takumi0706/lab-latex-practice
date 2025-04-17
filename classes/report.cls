@@ -14,7 +14,7 @@
     foot_space=30mm,
     gutter=25mm,
     fore-edge=25mm,
-    linegap=1zw,
+    linegap=0.5zw,
     report]
     {jlreq}
 
@@ -170,6 +170,6 @@
 % 角丸の長方形で囲むコマンドの定義
 \newcommand{\roundedbox}[1]{%
   \tikz[baseline=(box.base)]{
-    \node[draw,rounded corners=3pt,inner sep=2pt] (box) {#1};
+    \node[draw,rounded corners=3pt,inner sep=3pt] (box) {#1};
   }%
 }
