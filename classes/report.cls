@@ -101,7 +101,7 @@
 \captionsetup[figure]{labelsep=quad, labelformat=simple, name=Fig.}
 \captionsetup[subfigure]{labelsep=quad, labelformat=simple, name=Fig.}
 \renewcommand*{\thesubfigure}{(\alph{subfigure})}
-\captionsetup[table]{labelsep=quad, labelformat=simple, name=Table}
+\captionsetup[table]{labelsep=colon, labelformat=simple, name=表}
 
 % 本文中のFigureとTableの表記統一のため，\Fig・\Tableを定義
 % 引数としてlabelを受け取り，それを使ってFigureやTableを参照する
@@ -127,7 +127,7 @@
 
 % \Tableマクロの定義
 \newcommand{\Table}[2][]{%
-    \FigTableEq[#1]{Table}{#2}%
+    \FigTableEq[#1]{表}{#2}%
 }
 
 % \Equationマクロの定義

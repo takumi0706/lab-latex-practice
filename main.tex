@@ -1,5 +1,24 @@
 \documentclass{classes/report}
 \usepackage{tocloft} % 目次関連のパッケージ
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{chngcntr} % カウンターの依存関係を変更するパッケージ
+
+% 表のキャプション名を「表」に変更
+\renewcommand{\tablename}{表}
+% 表番号から章番号を省いて連番にする
+\counterwithout{table}{chapter}
+
+% 脚注の番号を非表示にする設定
+\makeatletter
+\renewcommand\@makefntext[1]{\noindent\makebox[0pt][r]{\@thefnmark\hspace{.2em}}\@setfontsize\footnotesize\@ixpt{11}#1}
+\renewcommand\@makefnmark{}
+\makeatother
+
+% @を含むコマンドを修正するためのパッチ
+\makeatletter
+\def\@chapapp{第}  % 明示的に\@chapappを定義する
+\makeatother
 
 \begin{document}
 
@@ -41,8 +60,5 @@
 \subfile{sections/useOutStorage}
 
 \subfile{sections/useWirelessNetwork}
-% \subfile{sections/main_issue}
-
-% \subfile{sections/references}
 
 \end{document}
