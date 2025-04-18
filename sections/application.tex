@@ -2,6 +2,69 @@
 \documentclass[main]{subfiles}
 
 \begin{document}
+\vspace{9pt}
 \chapter{アプリケーション}
-\fontsize{10.2}{10} \selectfont
+\fontsize{10}{13} \selectfont
+
+基本的に，画面左上の「アクティビティ」→「アプリケーション」メニューから選んで実行します．以下で，使用するアプリケーションについていくつか注意する点を挙げます．\\
+
+\begin{description}[itemsep=0.8em]
+    \item[デスクトップ環境] GNOME と呼ばれるデスクトップ環境を採用しています．
+    \item[日本語エンコーディング] 日本語の文字エンコーディングにはいくつか種類があります．当研究室ではUTF-8をデフォルトに設定しています．
+    \begin{description}
+        \item[EUC] 以前Unix で広く採用されていたコード.
+        \item[JIS(ISO-2022-JP)] E-mailで採用されているコード
+        \item[SJIS] Microsoft, Apple等商用PCでよく採用されているコード
+        \item[UTF-8] 現在の世界標準である Unicode と呼ばれるコードの一部．MS-Windows の日本語ファイル名等にも使われている.
+    \end{description}
+    
+    \item[端末エミュレータ] コマンドライン（古語）を使用するためのアプリケーション．普通は GNOME 端末(gnome-terminal)を使ってください．JIS と UTF-8(または EUC 他；超漢字等非対応)に対応しています．
+    \item[テキストエディタ] 少なくとも UTF-8 を扱えるものを使ってください．
+    \begin{description}
+        \item[Emacs(+yatex)] 上級者向けだが，C や \LaTeX のソースの入力サポートが高機能．7面で解説．
+    \end{description}
+    \item[Web ブラウザ] 　
+    \begin{description}
+        \item[Firefox] Mozilla 製ブラウザ．
+    \end{description}
+    \item[メーラー] 　
+    \begin{description}
+        \item[Thunderbird] 当研究室ではこれを推奨．初めて使う時は次のように設定してください：
+        \begin{enumerate}
+            \item Thunderbirdを起動して現れるポップアップで「メールアカウントを設定する」をクリック
+            \item 以下を設定して「続ける」をクリック
+                \begin{itemize}
+                    \item あなたのお名前: (例) Akira Matsubayashi
+                    \item メールアドレス: (例) mbayashi@genie.ec.t.kanazawa-u.ac.jp
+                    \item パスワード: (ログインパスワード)
+                \end{itemize}
+            \item 以下が検出されるのを確認して「完了」
+                \begin{itemize}
+                    \item 受信サーバ: POP3, genie.ec.t.kanazawa-u.ac.jp, STARTTLS
+                    \item 送信サーバ: SMTP, genie.ec.t.kanazawa-u.ac.jp, 接続の保護なし
+                    \item ユーザ名: (例) mbayashi
+                \end{itemize}
+            \item 「送信サーバ設定...接続時暗号化されません」の警告文で「接続するときの危険性を理解しました」をチェックして「完了」
+            \item 「セキュリティ例外の追加」ポップアップで「セキュリティ例外を承認」
+        \item [Emacs+Mew] メール本文の作成・編集に Emacs を使いたい人向け．1 通あたり1ファイルに分かれるので，Unix コマンドの機能をフルに使って検索・整理・分類ができるという利点がある．
+        \end{enumerate}
+    \end{description}
+    \item[PDF ビューア] PDFファイルのビューアです．    
+    \begin{description}
+        \item[Adobe Reader (acroreader)] Adobe 社の純正ビューア．動作が重いが表示品質は良い．印刷にはこちらを使う．
+        \item[evince] 表示品質は良くないが若干動作が軽い．ちょっと見る時には便利．PostScript ファイルを見ることもできます．
+    \end{description}
+    \item[数学関連] 
+    \begin{description}
+        \item[gnuplot] 関数およびデータの2/3次元プロッタ．
+        \item[maxima] Mathematica 風の数式処理パッケージ．
+    \end{description}
+    \item[ドローツール] 図を作成するツールです．EPS を作成できるものを使ってください．
+    \begin{description}
+        \item[Inkscape] SVG 編集ソフト．基本的にはこちらを推奨．
+        \item[LibreOffice Draw (libreoffice)] もう一つの選択肢．
+    \end{description}
+    \item[フォトレタッチツール] gimp があります．
+    \item[オフィスアプリケーション] LibreOffice シリーズがあります．
+\end{description}
 \end{document}
