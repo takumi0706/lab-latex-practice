@@ -1,4 +1,6 @@
-sections/first.tex
-sections/attention.tex
-sections/account_password.tex
-sections/application.tex
+sections/1 first.tex
+sections/2 attention.tex
+sections/3 account_password.tex
+sections/4 application.tex
+
+figures/computers_table.tex

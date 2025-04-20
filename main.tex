@@ -1,24 +1,5 @@
 \documentclass{classes/report}
-\usepackage{tocloft} % 目次関連のパッケージ
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{chngcntr} % カウンターの依存関係を変更するパッケージ
-
-% 表のキャプション名を「表」に変更
-\renewcommand{\tablename}{表}
-% 表番号から章番号を省いて連番にする
-\counterwithout{table}{chapter}
-
-% 脚注の番号を非表示にする設定
-\makeatletter
-\renewcommand\@makefntext[1]{\noindent\makebox[0pt][r]{\@thefnmark\hspace{.2em}}\@setfontsize\footnotesize\@ixpt{11}#1}
-\renewcommand\@makefnmark{}
-\makeatother
-
-% @を含むコマンドを修正するためのパッチ
-\makeatletter
-\def\@chapapp{第}  % 明示的に\@chapappを定義する
-\makeatother
+\usepackage{afterpage} % 次のページに内容を配置するためのパッケージ
 
 \begin{document}
 
@@ -26,39 +7,31 @@
 \subfile{sections/title}
 \newpage
 
-\renewcommand{\contentsname}{\Large 目次} % 目次のタイトルを小さく
-
-\setlength{\cftbeforetoctitleskip}{0pt} % 目次タイトル前の空白をなくす
-\setlength{\cftaftertoctitleskip}{0pt} % 目次タイトル後の空白を調整
-
-\renewcommand{\cftsubsecpagefont}{\normalfont} % 目次のサブセクションのページ番号を通常フォントに
-\renewcommand{\cftsubsubsecpagefont}{\normalfont} % 目次のサブサブセクションのページ番号を通常フォントに
-
 \tableofcontents
 \clearpage
 
 \pagenumbering{arabic}
 
-\subfile{sections/first}
+\subfile{sections/1 first}
 
-\subfile{sections/attention}
+\subfile{sections/2 attention}
 
-\subfile{sections/account_password}
+\subfile{sections/3 account_password}
 
-\subfile{sections/application}
+\subfile{sections/4 application}
 
-\subfile{sections/commandLine}
+\subfile{sections/5 commandLine}
 
-\subfile{sections/unix}
+\subfile{sections/6 unix}
 
-\subfile{sections/textEditer}
+\subfile{sections/7 textEditer}
 
-\subfile{sections/createDocment}
+\subfile{sections/8 createDocment}
 
-\subfile{sections/createFigure}
+\subfile{sections/9 createFigure}
 
-\subfile{sections/useOutStorage}
+\subfile{sections/10 useOutStorage}
 
-\subfile{sections/useWirelessNetwork}
+\subfile{sections/11 useWirelessNetwork}
 
 \end{document}
