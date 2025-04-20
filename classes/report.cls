@@ -5,10 +5,10 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-% 2カラム,A4,フォントサイズ9pt
+% 2カラム,A4,フォントサイズ11pt
 \LoadClass[
     paper=a4,
-    fontsize=11pt,
+    fontsize=10pt,
     disablejfam,
     head_space=30mm,
     foot_space=30mm,
@@ -18,6 +18,48 @@
     report]
     {jlreq}
 
+\RequirePackage{tocloft} % 目次関連のパッケージ
+\RequirePackage{fancyhdr}
+
+% @を含むコマンドを修正するためのパッチ
+\makeatletter
+\def\@chapapp{第}  % 明示的に\@chapappを定義する
+\makeatother
+
+% 脚注に関する設定
+\RequirePackage{chngcntr} % カウンターの依存関係を変更するパッケージ
+% 脚注番号を章ごとにリセットしないで連番にする
+\counterwithout{footnote}{chapter}
+% 脚注を上付き文字で表示するための設定
+\makeatletter
+% 脚注番号を小さい上付き文字にする
+\renewcommand\@makefnmark{\textsuperscript{\scriptsize\@thefnmark}}
+% 脚注を右に寄せるため、インデントとマージンを調整
+\renewcommand\@makefntext[1]{\noindent\hspace{2em}\makebox[0pt][r]{\textsuperscript{\scriptsize\@thefnmark}}\@setfontsize\scriptsize\@viipt{8}#1}
+\makeatother
+% 脚注を区切る線の設定
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width 5cm
+  \kern 2.6pt
+}
+
+% 表のキャプション名を「表」に変更
+\renewcommand{\tablename}{表}
+% 表番号から章番号を省いて連番にする
+\counterwithout{table}{chapter}
+
+% 目次関連の設定
+\renewcommand{\contentsname}{\Large 目次} % 目次のタイトルを小さく
+
+\AtBeginDocument{
+  \setlength{\cftbeforetoctitleskip}{0pt} % 目次タイトル前の空白をなくす
+  \setlength{\cftaftertoctitleskip}{0pt} % 目次タイトル後の空白を調整
+  \renewcommand{\cftchapfont}{\sffamily\bfseries} % チャプターのタイトルをサンセリフ体太字に
+  \renewcommand{\cftchappagefont}{\rmfamily\bfseries} % チャプターのページ番号はローマン体のまま
+  \renewcommand{\cftsubsecpagefont}{\normalfont} % 目次のサブセクションのページ番号を通常フォントに
+  \renewcommand{\cftsubsubsecpagefont}{\normalfont} % 目次のサブサブセクションのページ番号を通常フォントに
+}
 
 \RequirePackage{ifptex}
 \RequirePackage{ifluatex}
@@ -40,8 +82,6 @@
 \RequirePackage{indentfirst} % 最初の段落でインデントするためのパッケージ
 \RequirePackage{framed} % 囲み付き文章を出すためのパッケージ
 \RequirePackage{type1cm} % 文字の大きさを自由に変えるためのパッケージ
-
-
 
 \ifluatex
     % LuaTeXを日本語で使うための設定
@@ -80,7 +120,27 @@
     \fi
 \fi
 
-% \RequirePackage{enumitem} % 高機能番号付き箇条書きのパッケージ
+\RequirePackage{enumitem} % 高機能番号付き箇条書きのパッケージ
+
+% カスタムリストスタイルの定義
+\newlist{myitemize}{itemize}{3}
+\setlist[myitemize]{
+  label={\textbullet},
+  font={\bfseries},
+  itemsep=0.7em,
+  leftmargin=2em,
+  labelsep=0.7em,
+}
+
+% 既存のitemize環境の設定もカスタマイズ
+\setlist[itemize]{
+  label={\textbullet}, % 太字の点を使用
+  font={\bfseries}, % マーカーを太字にする
+  itemsep=0.7em,
+  leftmargin=2em, % 左マージンを設定
+  labelsep=0.7em, % 点と文字の間のスペースを広げる
+}
+
 \RequirePackage{tabularx} % 表の幅を指定するためのパッケージ
 \RequirePackage[bibstyle=bibliography,sorting=none,date=year,isbn=false,doi,giveninits,urldate=iso,seconds]{biblatex} % biblatexを使用するためのパッケージ
 \addbibresource{references.bib}
@@ -91,7 +151,6 @@
 % \DeclareFieldFormat*{title}{\textit{#1}}
 % \DeclareFieldFormat[inproceedings]{booktitle}{\textit{#1}}
 % \DeclareFieldFormat[book]{title}{\textit{#1}}
-
 
 % キャプションとサブキャプションの設定
 \RequirePackage{silence}
@@ -136,19 +195,16 @@
 }
 
 % sectionのサイズを合わせる
-\RenewBlockHeading{chapter}{0}{lines=2,label_format={\thechapter},font={\bfseries\Large},after_label_space=1\jlreq@zw,second_heading_text_indent={-1\jlreq@zw,1\jlreq@zw},subtitle_font={\Large}}
-\RenewBlockHeading{section}{1}{font=\normalsize,after_label_space=1\jlreq@zw}
-\RenewBlockHeading{subsection}{2}{font=\normalsize,after_label_space=1\jlreq@zw}
-\RenewBlockHeading{subsubsection}{3}{font=\normalsize,after_label_space=1\jlreq@zw}
+\RenewBlockHeading{chapter}{0}{lines=2,label_format={{\rmfamily\thechapter}},font={\sffamily\bfseries\Large},after_label_space=1zw,second_heading_text_indent={-1zw,1zw},subtitle_font={\sffamily\Large}}
+\RenewBlockHeading{section}{1}{font=\normalsize,after_label_space=1zw}
+\RenewBlockHeading{subsection}{2}{font=\normalsize,after_label_space=1zw}
+\RenewBlockHeading{subsubsection}{3}{font=\normalsize,after_label_space=1zw}
 
 % セクション類の空白の設定
-\ModifyHeading{section}{before_space=30pt, after_space=30pt}
+\ModifyHeading{chapter}{before_space=15pt, after_space=13pt}
+\ModifyHeading{section}{before_space=15pt, after_space=15pt}
 \ModifyHeading{subsection}{before_space=20pt, after_space=20pt}
 \ModifyHeading{subsubsection}{before_space=15pt, after_space=15pt}
-% セクションタイトルが一行以下なら下、２行以上なら上
-% \ModifyHeading{section}{lines=1}
-% \ModifyHeading{subsection}{lines=1}
-% \ModifyHeading{subsubsection}{lines=1}
 
 % セクションが連続する際の行取りを設定
 \SetBlockHeadingSpaces{
@@ -172,4 +228,10 @@
   \tikz[baseline=(box.base)]{
     \node[draw,rounded corners=3pt,inner sep=3pt] (box) {#1};
   }%
+}
+
+% descriptionリスト環境の設定 - すべての項目にラベルと説明文の間のスペースを設定
+\setlist[description]{
+  itemsep=0.7em,
+  labelsep=0.5em,
 }
